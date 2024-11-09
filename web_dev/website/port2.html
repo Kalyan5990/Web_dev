@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavan Kalyan | Portfolio</title>
+    <style>
+              * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Global Styles */
+        section {
+            padding: 100px 20px;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background:black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu li a {
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #f39c12;
+        }
+
+        .profile-pic {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu li:hover .profile-pic {
+            transform: scale(1.1);
+        }
+
+        /* Home Section with Animated Motion */
+        #home {
+            background: url('../website/bg7.jpg') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-attachment: fixed;
+        }
+
+        /* Adding overlay to improve text visibility */
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+            z-index: 1;
+        }
+
+        /* Animated motion for heading, paragraph, and button */
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInUp 1s forwards 0.5s; /* Animation with delay */
+            z-index: 2;
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeInUp 1s forwards 1s; /* Animation with delay */
+            z-index: 2;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 1.5s; /* Animation with delay */
+            z-index: 2;
+        }
+
+        .cta-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(5px); /* Hover effect to raise button */
+            transition: transform 0.3s ease;
+        }
+
+        /* Parallax scrolling effect for the background image */
+        #home::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            z-index: -1;
+            will-change: transform;
+            transform: translateZ(0) scale(1.1);
+            animation: parallax 5s infinite linear;
+        }
+
+        /* Parallax effect animation */
+        @keyframes parallax {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(30px);
+            }
+        }
+
+        /* Fade-in animation for the elements */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .menu {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+
+            .cta-btn {
+                width: 80%;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+            }
+
+            #home p {
+                font-size: 1.2rem;
+            }
+        }
+        #projects {
+            background-color: white;
+            padding: 100px 20px;
+        }
+
+        #projects h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        .project a {
+            text-decoration: none;
+            color: #f39c12;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .project a:hover {
+            color: #e67e22;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #34495e;
+            color: white;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f39c12;
+            letter-spacing: 2px;
+        }
+
+        form {
+            max-width: 700px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form input,
+        form textarea {
+            padding: 15px;
+            background-color: #2c3e50;
+            border: 1px solid #555;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #f39c12;
+            outline: none;
+        }
+
+        form button {
+            padding: 15px 30px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .menu {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+
+            .cta-btn {
+                width: 80%;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project img {
+                height: 150px;
+            }
+
+            form input,
+            form textarea {
+                width: 90%;
+            }
+        }
+        #about {
+            background-color: #ffffff;
+            color: #333;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        #about p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1s forwards 1s;
+        }
+
+        /* Optional Image Styling in About Section */
+        #about .about-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 30px;
+            animation: fadeInUp 1s forwards 1.5s;
+        }
+
+        /* Fade-in animation for the elements */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            #about {
+                padding: 50px 20px;
+            }
+
+            #about h2 {
+                font-size: 2rem;
+            }
+
+            #about p {
+                font-size: 1rem;
+            }
+
+            #about .about-image {
+                width: 200px;
+                height: 200px;
+                margin-top: 20px;
+            }
+        } #about {
+            background-color: #fafafa;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        #about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap; /* To make it responsive on smaller screens */
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #333;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        #about p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #555;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1s forwards 1s;
+        }
+
+        #about .about-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(100px);
+            animation: fadeInUp 1s forwards 1.5s;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-content">
+            <img src="../css boxes/NavBar/pr icon.jpg" alt="Profile Pic" class="profile-pic">
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Hi, I'm Pavan Kalyan</h1>
+        <p>Full-Stack Developer & Web Designer</p>
+        <button class="cta-btn">Explore My Work</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I'm a passionate Full-Stack Developer with a knack for building modern, scalable web applications. I specialize in JavaScript technologies, including React.js, Node.js, and Express.js, and I love crafting user-centric designs. With a solid background in both front-end and back-end development, I am always eager to explore new technologies and create solutions that solve real-world problems.
+                </p>
+            </div>
+            <img src="pk1.jpg" alt="Profile Picture" class="about-image">
+        </div>
+    </section>
+   
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <img src="bg 1.jpg" alt="Project 1">
+                <div class="project-content">
+                    <h3>Project One</h3>
+                    <p>A full-stack web application built with React and Node.js.</p>
+                    <a href="Kalyan.docx">View Project</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="bg2.jpg" alt="Project 2">
+                <div class="project-content">
+                    <h3>Project Two</h3>
+                    <p>An e-commerce platform with a secure payment system.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="bg3.jpg" alt="Project 3">
+                <div class="project-content">
+                    <h3>Project Three</h3>
+                    <p>A task management app with real-time updates.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="#">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+</body>
+
+</html>

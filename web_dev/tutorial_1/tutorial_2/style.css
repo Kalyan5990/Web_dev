@@ -1,0 +1,23 @@
+h1{
+    color: blue;
+}
+p{
+    color: rgb(255, 195, 127);
+}
+.my-container{
+    background-color: black;
+    height: 50vh;
+    text-align: center;
+}
+.pk{
+    text-align: center;
+    background-color: black;
+}
+.txt{
+    color: red;
+    background-color: rgb(224, 234, 226);
+}
+.pg{
+    color: bisque;
+    background-color: rgb(138, 127, 255);
+}

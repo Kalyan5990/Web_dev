@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Company Website</title>
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("bg5.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: rgb(7, 21, 2);
+    }
+    h1, h2, p {
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Adjusted for logo and links */
+      background-color: black;
+      padding: 15px;
+      width: 100%; /* Full width */
+      z-index: 1000; /* Ensure it stays above other elements */
+      transition: background-color 0.3s; /* Smooth transition */
+    }
+    .navbar img {
+      height: 50px; /* Adjust height as needed */
+      margin-right: 20px; /* Space between logo and links */
+    }
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center;
+      position: relative; /* Added for dropdown positioning */
+      transition: background-color 0.3s;
+    }
+    .navbar a:hover {
+      background-color: orange;
+    }
+
+    /* Sticky Navbar */
+    .sticky {
+      position: fixed; /* Fixed position when sticky */
+      top: 0; /* Stick to the top */
+      width: 100%; /* Full width */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+      transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    .dropdown-content a:hover {
+      background-color: orange;
+      color: white;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block; /* Show the dropdown on hover */
+    }
+
+    /* Button Hover Effect */
+    .button {
+      display: inline-block;
+      background-color: orange;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      background-color: yellow;
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+      transform: translateY(-2px);
+      color: black;
+    }
+
+    /* Scroll Animation (Fade In + Slide Up) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Projects Section */
+    .projects {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .project {
+      background-color: orange;
+      color: white;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 5px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Company Details Section */
+    .company-details {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .company-details a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .company-details a:hover {
+      text-decoration: underline;
+    }
+    .social-media {
+      margin-top: 20px;
+    }
+    .social-media a {
+      margin: 0 10px;
+      color: orange;
+    }
+    .social-media a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar" id="navbar">
+    <img src="../tutorial_1/pr icon.jpg" alt="Company Logo"> <!-- Replace 'logo.png' with your logo path -->
+    <div>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <div class="dropdown">
+        <a href="#projects">Projects</a>
+        <div class="dropdown-content">
+          <a href="#btech">B.Tech</a>
+          <a href="#mtech">M.Tech</a>
+          <a href="#mba">MBA</a>
+          <a href="#degree">Degree</a>
+          <a href="#mca">MCA</a>
+        </div>
+      </div>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="container" id="home">
+    <h1>Welcome to Pavan Kalyan's IT Company</h1>
+    <a href="#contact" class="button">Get in Touch</a>
+    
+    <h2 class="fade-in" id="services">Our Services</h2>
+    <p class="fade-in">We provide top-notch IT solutions that cater to all your business needs, including web development, software solutions, and more.</p>
+    
+    <h2 class="fade-in" id="projects">Our Projects</h2>
+    <div class="projects">
+      <div class="project fade-in">
+        <h3>Project A</h3>
+        <p>A comprehensive e-commerce platform designed to enhance user experience and streamline operations.</p>
+      </div>
+      <div class="project fade-in">
+        <h3>Project B</h3>
+        <p>A mobile app for on-demand services, offering users easy access to various services at their fingertips.</p>
+      </div>
+      <div class="project fade-in">
+        <h3>Project C</h3>
+        <p>A custom CRM solution to help businesses manage their customer relationships and improve sales.</p>
+      </div>
+      <div class="project fade-in">
+        <h3>Project D</h3>
+        <p>A data analytics dashboard that provides real-time insights to help businesses make informed decisions.</p>
+      </div>
+    </div>
+    
+    <h2 class="fade-in" id="about">About Us</h2>
+    <p class="fade-in">Our mission is to deliver innovative IT solutions that empower businesses to thrive in the digital age. We strive for excellence, integrity, and customer satisfaction in every project we undertake.</p>
+    
+    <!-- Company Details Section -->
+    <h2 class="fade-in" id="contact">
+      <div class="company-details">
+        <h2>Contact Us</h2>
+        <p>
+          Phone: <a href="tel:+1234567890">+91 (9177) 735-655</a><br>
+          Email: <a href="mailto:info@yourcompany.com">pandrdigitalsolutions.com</a><br>
+          Location: <a href="#contact">560037 Marathahalli, Bangalore, Karnataka</a><br>
+          Office Hours: Mon-Fri: 9:00 AM - 6:00 PM
+        </p>
+        
+        <div class="social-media">
+          <h3>Follow Us</h3>
+          <a href="https://youtube.com/@pavankalyan-kl5sb?si=kd-_xcbdUEl0kLrI" target="_blank">Youtube</a>
+          <a href="https://www.instagram.com/pavankalyan914/profilecard/?igsh=aXFkaHJkYW5hcWM2" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/pavan-kalyan-b65067226/" target="_blank">LinkedIn</a>
+        </div>
+        
+        <h3>Service Areas</h3>
+        <p>We serve clients all over India</p>
+      </div>
+    </h2>
+  </div>
+  <script>
+    // Scroll Animation with Intersection Observer API
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        }
+      });
+    });
+    
+    fadeElements.forEach(element => observer.observe(element));
+
+    // Sticky Navbar Script
+    const navbar = document.getElementById('navbar');
+    const sticky = navbar.offsetTop;
+
+    function handleScroll() {
+      if (window.pageYOffset > sticky) {
+        navbar.classList.add('sticky');
+      } else {
+        navbar.classList.remove('sticky');
+      }
+    }
+
+    window.onscroll = handleScroll;
+  </script>
+</body>
+</html>
